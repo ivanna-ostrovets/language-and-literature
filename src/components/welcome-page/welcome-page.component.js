@@ -1,7 +1,7 @@
 function WelcomePageController() {}
 
 angular.module('llt.app')
-  .component('lttWelcomePage', {
+  .component('lltWelcomePage', {
     templateUrl: 'components/welcome-page/welcome-page.component.html',
     controller: WelcomePageController,
   });
