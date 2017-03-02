@@ -3,12 +3,11 @@ function FormController(
   tests
 ) {
   this.tests = tests;
-
-  this.test = this.tests.get($routeParams.testId); // $routeParams.test = '1_1'
+  this.test = this.tests.get($routeParams.id);
 }
 
 angular.module('llt.app')
-  .component('lttForm', {
+  .component('lltForm', {
     templateUrl: 'components/form/form.component.html',
     controller: FormController
   });
