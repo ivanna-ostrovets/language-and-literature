@@ -1,7 +1,7 @@
 function UkrainianLiteratureController() {}
 
 angular.module('llt.app')
-  .component('ltt-ukrainian-literature', {
-    templateUrl: 'ukrainian-literature.component.html',
+  .component('lttUkrainianLiterature', {
+    templateUrl: 'components/ukrainian-literature/ukrainian-literature.component.html',
     controller: UkrainianLiteratureController,
   });
