@@ -1,0 +1,8 @@
+<form>
+	<div ng-repeat="question in $ctrl.test">
+		<h2>{{question.question}}</h2>
+		<div ng-repeat="answer in question.answers">
+			<input type="radio" name="$parent.$index" value="$index"> {{answer.text}}
+		</div>
+	</div>
+</form>
