@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.brand-logo {
+    margin-right: 17px;
+}
+
+.brand-logo i.material-icons {
+    font-size: 2.5rem;
+}
+
+.side-nav li:first-of-type {
+    height: 20%;
+}
+
+.side-nav .background, .side-nav .userView {
+    height: 100%;
+}
+
+.userView a i {
+    display: inline;
+    float: left;
+}
