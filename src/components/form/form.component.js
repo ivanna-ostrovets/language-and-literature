@@ -1,24 +1,23 @@
-function FormController($routeParams,
-                        tests) {
+function FormController(
+    $routeParams,
+    tests,
+    $timeout
+) {
   this.tests = tests;
   this.test = this.tests.get($routeParams.id);
+  this.currentTab = 0;
 
-  this.range = function (min, max, step) {
-    min = min || 1;
-    max = max || 12;
-    step = step || 1;
-
-    var input = [];
-    for (var i = min; i <= max; i += step) {
-      input.push(i);
-    }
-    return input;
-  };
-
-  $(document).ready(function () {
-    $('ul.tabs').tabs();
+  $(document).ready(function() {
+    $timeout(function() {
+      $('ul.tabs').tabs();
+    }, 0);
   });
 }
+
+FormController.prototype.clickTab = function(tab) {
+  this.currentTab--;
+  document.querySelector('#tab' + tab).click();
+};
 
 angular.module('llt.app')
     .component('lltForm', {

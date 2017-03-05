@@ -28,3 +28,7 @@ main {
     display: inline;
     float: left;
 }
+
+.tab {
+    cursor: pointer;
+}
