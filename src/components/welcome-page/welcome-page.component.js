@@ -1,4 +1,8 @@
-function WelcomePageController() {}
+function WelcomePageController() {
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+}
 
 angular.module('llt.app')
   .component('lltWelcomePage', {
