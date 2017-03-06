@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab" ng-repeat="i in $ctrl.range()"><a href="#question{{ i }}">{{ i }}</a></li>
+        <li class="tab hoverable" ng-repeat="question in $ctrl.test"><a href="#question{{ $index }}">{{ $index + 1 }}</a></li>
       </ul>
     </div>
-    <div ng-repeat="question in $ctrl.test" id="question{{ $index + 1 }}" class="col s12">
+    <div ng-repeat="question in $ctrl.test" id="question{{ $index }}" class="col s12">
       <h2>{{question.question}}</h2>
       <div ng-repeat="answer in question.answers">
-        <input type="radio" name="$parent.$index" value="$index"> {{answer.text}}
+        <input type="radio" name="{{ $parent.$index }}" value="{{ $index }}" class="browser-default"> {{answer.text}}
       </div>
     </div>
   </div>
