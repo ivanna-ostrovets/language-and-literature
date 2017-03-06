@@ -28,3 +28,21 @@ main {
     display: inline;
     float: left;
 }
+
+.navbar-fixed nav, footer.page-footer {
+    background-color: #388e3c;
+}
+
+.tabs .tab a, .tabs .tab a.active, .tabs .tab a:hover {
+    color: #388e3c;
+}
+
+.tabs .indicator {
+    background-color: #388e3c;
+}
+
+input[type="radio"]:not(:checked), input[type="radio"]:checked {
+    position: relative;
+    left: 0;
+    opacity: 100;
+}
