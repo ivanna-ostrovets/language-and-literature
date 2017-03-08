@@ -23,8 +23,14 @@
 
     <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
-            ng-click="$ctrl.clickTab($ctrl.currentTab - 1)">
+            ng-click="$ctrl.before($ctrl.currentTab - 1)">
       <i class="material-icons">navigate_before</i>
+    </button>
+
+    <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
+            ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
+            ng-click="$ctrl.next($ctrl.currentTab + 1)">
+      <i class="material-icons">navigate_next</i>
     </button>
   </div>
 </form>

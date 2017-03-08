@@ -3,6 +3,7 @@ function FormController(
     tests,
     $timeout
 ) {
+  this.$timeout = $timeout;
   this.tests = tests;
   this.test = this.tests.get($routeParams.id);
   this.currentTab = 0;
@@ -14,9 +15,18 @@ function FormController(
   });
 }
 
-FormController.prototype.clickTab = function(tab) {
+FormController.prototype.before = function(tab) {
   this.currentTab--;
-  document.querySelector('#tab' + tab).click();
+  this.$timeout(function() {
+    document.querySelector('#tab' + tab).click();
+  }, 0);
+};
+
+FormController.prototype.next = function(tab) {
+  this.currentTab++;
+  this.$timeout(function() {
+    document.querySelector('#tab' + tab).click();
+  }, 0);
 };
 
 angular.module('llt.app')
