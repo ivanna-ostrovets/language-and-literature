@@ -8,8 +8,8 @@ main {
     flex: 1 0 auto;
 }
 
-.brand-logo {
-    margin-right: 17px;
+.nav-wrapper a.brand-logo {
+    padding-right: 8px;
 }
 
 .brand-logo i.material-icons {
@@ -35,6 +35,22 @@ main {
 
 .navbar-fixed nav, footer.page-footer {
     background-color: #388e3c;
+}
+
+footer.page-footer {
+    padding: 0;
+}
+
+.page-footer .container {
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+}
+
+.footer-text {
+    color: #ffffff;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .tabs .tab a, .tabs .tab a.active, .tabs .tab a:hover {
