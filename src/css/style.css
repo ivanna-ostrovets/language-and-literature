@@ -17,7 +17,7 @@ main {
 }
 
 .side-nav li:first-of-type {
-    height: 20%;
+    height: 25%;
 }
 
 .side-nav .background, .side-nav .userView {
@@ -65,4 +65,8 @@ input[type="radio"]:not(:checked), input[type="radio"]:checked {
     position: relative;
     left: 0;
     opacity: 100;
+}
+
+.collapsible-body .test-link {
+    padding-left: 46px !important;
 }
