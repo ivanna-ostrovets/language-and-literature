@@ -1,11 +1,14 @@
 function FormController(
     $routeParams,
-    tests,
-    $timeout
+    $timeout,
+    tests
 ) {
+  this.$routeParams = $routeParams;
   this.$timeout = $timeout;
   this.tests = tests;
-  this.test = this.tests.get($routeParams.id);
+
+  this.testId = this.$routeParams.id;
+  this.test = this.tests.get(this.$routeParams.id);
   this.currentTab = 0;
   this.results = [];
   this.count = 0;
@@ -32,7 +35,7 @@ FormController.prototype.next = function(tab) {
 };
 
 FormController.prototype.check = function() {
-  this.count = this.tests.check(this.results, this.test);
+  this.count = this.tests.check(this.results, this.testId);
   console.log(this.count);
 };
 

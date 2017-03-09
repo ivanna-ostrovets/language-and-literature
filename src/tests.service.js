@@ -42,10 +42,10 @@ TestsService.prototype.get = function(id) {
 TestsService.prototype.getAnswers = function(test) {
   var answers = [];
 
-  test.question.forEach(function(item) {
-    item.answers.forEach(function(answer, index) {
-      if (answer.hasOwnProperty('correct')) {
-        answers.push(indexsss + 1);
+  test.forEach(function(question) {
+    question.answers.forEach(function(answer, index) {
+      if (answer.correct) {
+        answers.push(index + 1);
       }
     });
   });
@@ -53,8 +53,9 @@ TestsService.prototype.getAnswers = function(test) {
   return answers;
 };
 
-TestsService.prototype.check = function(results, test) {
+TestsService.prototype.check = function(results, testId) {
   var count = 0;
+  var test = this.get(testId);
   var answers = this.getAnswers(test);
   console.log(answers);
 
