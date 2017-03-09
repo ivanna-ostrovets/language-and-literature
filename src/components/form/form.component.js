@@ -11,7 +11,9 @@ function FormController(
   this.test = this.tests.get(this.$routeParams.id);
   this.currentTab = 0;
   this.results = [];
+  this.answers = this.tests.getAnswers(this.test);
   this.count = 0;
+  this.showAnswers = false;
 
   $(document).ready(function() {
     $timeout(function() {
@@ -36,7 +38,7 @@ FormController.prototype.next = function(tab) {
 
 FormController.prototype.check = function() {
   this.count = this.tests.check(this.results, this.testId);
-  console.log(this.count);
+  this.showAnswers = true;
 };
 
 angular.module('llt.app')

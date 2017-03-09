@@ -57,7 +57,12 @@ TestsService.prototype.check = function(results, testId) {
   var count = 0;
   var test = this.get(testId);
   var answers = this.getAnswers(test);
-  console.log(answers);
+
+  results.forEach(function(result, index) {
+    if (answers[index] == result) {
+      count += 1;
+    }
+  });
 
   return count;
 };

@@ -1,19 +1,40 @@
+<div class="center-align result" ng-show="$ctrl.showAnswers">
+  Ваш результат: {{$ctrl.count}}/12
+</div>
+
 <form>
-  <div class="center-align">
-    <ul class="tabs">
-      <li class="tab" ng-repeat="_ in $ctrl.test">
-        <a ng-click="$ctrl.currentTab = $index"
-           ng-class="{ 'active': $ctrl.currentTab == $index }"
-           id="tab{{$index}}">
-          {{ $index + 1 }}
-        </a>
-      </li>
-    </ul>
+  <div class="valign-wrapper questions-tabs">
+    <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
+            ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
+            ng-click="$ctrl.before($ctrl.currentTab - 1)">
+      <i class="material-icons">navigate_before</i>
+    </button>
+
+    <div class="valign">
+      <ul class="tabs">
+        <li class="tab" ng-repeat="_ in $ctrl.test">
+          <a ng-click="$ctrl.currentTab = $index"
+             ng-class="{
+            'active': $ctrl.currentTab == $index,
+            'wrong': $ctrl.showAnswers && $ctrl.answers[$index] != $ctrl.results[$index],
+            'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $ctrl.results[$index]
+           }"
+             id="tab{{$index}}">
+            {{ $index + 1 }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <button class="valign btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
+            ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
+            ng-click="$ctrl.next($ctrl.currentTab + 1)">
+      <i class="material-icons">navigate_next</i>
+    </button>
   </div>
 
   <div ng-repeat="question in $ctrl.test"
-       ng-show="$ctrl.currentTab == $index"
-       class="col s12">
+       ng-show="$ctrl.currentTab == $index">
     <h1 class="flow-text">{{question.question}}</h1>
 
     <div ng-repeat="answer in question.answers">
@@ -22,28 +43,21 @@
              value="{{ $index + 1 }}"
              class="with-gap"
              id="test_{{ $parent.$index }}_{{ $index }}"
-             ng-model="$ctrl.results[$parent.$index]">
-      <label for="test_{{ $parent.$index }}_{{ $index }}">{{answer.text}}</label>
+             ng-model="$ctrl.results[$parent.$index]"
+             ng-disabled="$ctrl.showAnswers"
+             ng-class="{
+              'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
+              'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
+             }">
+      <label for="test_{{ $parent.$index }}_{{ $index }}">
+        {{answer.text}}
+      </label>
     </div>
   </div>
 
   <div class="row center-align">
-    <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
-            ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
-            ng-click="$ctrl.before($ctrl.currentTab - 1)">
-      <i class="material-icons">navigate_before</i>
-    </button>
-
-    <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
-            ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
-            ng-click="$ctrl.next($ctrl.currentTab + 1)">
-      <i class="material-icons">navigate_next</i>
-    </button>
-  </div>
-
-  <div class="row center-align">
     <button class="btn-large waves-effect waves-green green darken-2"
-            ng-class="{ 'disabled': $ctrl.results.length > 12 }"
+            ng-class="{ 'disabled': $ctrl.results.length < 12 || $ctrl.showAnswers }"
             ng-click="$ctrl.check()">
       Перевірити
     </button>
