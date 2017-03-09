@@ -2,6 +2,7 @@ function NavbarController() {
   $(document).ready(function() {
     $(".start-test").sideNav();
     $('.collapsible').collapsible();
+    $('.modal').modal();
   });
 }
 
