@@ -7,6 +7,8 @@ function FormController(
   this.tests = tests;
   this.test = this.tests.get($routeParams.id);
   this.currentTab = 0;
+  this.results = [];
+  this.count = 0;
 
   $(document).ready(function() {
     $timeout(function() {
@@ -27,6 +29,11 @@ FormController.prototype.next = function(tab) {
   this.$timeout(function() {
     document.querySelector('#tab' + tab).click();
   }, 0);
+};
+
+FormController.prototype.check = function() {
+  this.count = this.tests.check(this.results, this.test);
+  console.log(this.count);
 };
 
 angular.module('llt.app')

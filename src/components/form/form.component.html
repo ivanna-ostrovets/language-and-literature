@@ -19,9 +19,10 @@
     <div ng-repeat="answer in question.answers">
       <input type="radio"
              name="{{ $parent.$index }}"
-             value="{{ $index }}"
+             value="{{ $index + 1 }}"
              class="with-gap"
-             id="test_{{ $parent.$index }}_{{ $index }}">
+             id="test_{{ $parent.$index }}_{{ $index }}"
+             ng-model="$ctrl.results[$parent.$index]">
       <label for="test_{{ $parent.$index }}_{{ $index }}">{{answer.text}}</label>
     </div>
   </div>
@@ -37,6 +38,14 @@
             ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
             ng-click="$ctrl.next($ctrl.currentTab + 1)">
       <i class="material-icons">navigate_next</i>
+    </button>
+  </div>
+
+  <div class="row center-align">
+    <button class="btn-large waves-effect waves-green green darken-2"
+            ng-class="{ 'disabled': $ctrl.results.length > 12 }"
+            ng-click="$ctrl.check()">
+      Перевірити
     </button>
   </div>
 </form>
