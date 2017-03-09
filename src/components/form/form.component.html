@@ -1,26 +1,32 @@
 <form>
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab" ng-repeat="_ in $ctrl.test">
-          <a ng-click="$ctrl.currentTab = $index"
-             ng-class="{ 'active': $ctrl.currentTab == $index }"
-             id="tab{{$index}}">
-            {{ $index + 1 }}
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div class="center-align">
+    <ul class="tabs">
+      <li class="tab" ng-repeat="_ in $ctrl.test">
+        <a ng-click="$ctrl.currentTab = $index"
+           ng-class="{ 'active': $ctrl.currentTab == $index }"
+           id="tab{{$index}}">
+          {{ $index + 1 }}
+        </a>
+      </li>
+    </ul>
+  </div>
 
-    <div ng-repeat="question in $ctrl.test"
-         ng-show="$ctrl.currentTab == $index"
-         class="col s12">
-      <h2>{{question.question}}</h2>
-      <div ng-repeat="answer in question.answers">
-        <input type="radio" name="{{ $parent.$index }}" value="{{ $index }}" class="browser-default"> {{answer.text}}
-      </div>
-    </div>
+  <div ng-repeat="question in $ctrl.test"
+       ng-show="$ctrl.currentTab == $index"
+       class="col s12">
+    <h1 class="flow-text">{{question.question}}</h1>
 
+    <div ng-repeat="answer in question.answers">
+      <input type="radio"
+             name="{{ $parent.$index }}"
+             value="{{ $index }}"
+             class="with-gap"
+             id="test_{{ $parent.$index }}_{{ $index }}">
+      <label for="test_{{ $parent.$index }}_{{ $index }}">{{answer.text}}</label>
+    </div>
+  </div>
+
+  <div class="row center-align">
     <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
             ng-click="$ctrl.before($ctrl.currentTab - 1)">

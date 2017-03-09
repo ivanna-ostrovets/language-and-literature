@@ -61,12 +61,10 @@ footer.page-footer {
     background-color: #388e3c;
 }
 
-input[type="radio"]:not(:checked), input[type="radio"]:checked {
-    position: relative;
-    left: 0;
-    opacity: 100;
-}
-
 .collapsible-body .test-link {
     padding-left: 46px !important;
+}
+
+label {
+    color: #000000;
 }
