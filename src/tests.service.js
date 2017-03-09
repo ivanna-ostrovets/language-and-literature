@@ -35,15 +35,36 @@ function TestsService(
   }
 }
 
-TestsService.prototype.get = function (id) {
+TestsService.prototype.get = function(id) {
   return this.tests[id];
 };
 
-TestsService.prototype.check = function (answers) {
-  /*
-   answers = [0, 2, 1, 1]
-   Перевіряєш правильність
-   */
+TestsService.prototype.getAnswers = function(test) {
+  var answers = [];
+
+  test.forEach(function(question) {
+    question.answers.forEach(function(answer, index) {
+      if (answer.correct) {
+        answers.push(index + 1);
+      }
+    });
+  });
+
+  return answers;
+};
+
+TestsService.prototype.check = function(results, testId) {
+  var count = 0;
+  var test = this.get(testId);
+  var answers = this.getAnswers(test);
+
+  results.forEach(function(result, index) {
+    if (answers[index] == result) {
+      count += 1;
+    }
+  });
+
+  return count;
 };
 
 angular.module('llt.app')

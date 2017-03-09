@@ -53,6 +53,18 @@ footer.page-footer {
     padding-right: 15px;
 }
 
+.questions-tabs {
+    margin-top: 20px;
+}
+
+div .tabs {
+    margin: 0 15px;
+}
+
+.tabs {
+    display: inline-block;
+}
+
 .tabs .tab a, .tabs .tab a.active, .tabs .tab a:hover {
     color: #388e3c;
 }
@@ -61,12 +73,24 @@ footer.page-footer {
     background-color: #388e3c;
 }
 
-input[type="radio"]:not(:checked), input[type="radio"]:checked {
-    position: relative;
-    left: 0;
-    opacity: 100;
-}
-
 .collapsible-body .test-link {
     padding-left: 46px !important;
+}
+
+[type="radio"]:disabled + label, label {
+    color: #000000 !important;
+}
+
+.correct:disabled + label, .correct {
+    color: #388e3c !important;
+}
+
+.wrong:checked + label, .wrong {
+    color: #f44336 !important;
+}
+
+.result {
+    font-size: 2rem;
+    margin-top: 10px;
+    padding: 5px;
 }
