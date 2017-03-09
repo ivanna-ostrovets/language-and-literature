@@ -15,7 +15,7 @@
     <div ng-repeat="question in $ctrl.test"
          ng-show="$ctrl.currentTab == $index"
          class="col s12">
-      <h2>{{question.question}}</h2>
+      <h2 ng-bind-html="question.question"></h2>
       <div ng-repeat="answer in question.answers">
         <input type="radio" name="{{ $parent.$index }}" value="{{ $index }}" class="browser-default"> {{answer.text}}
       </div>
