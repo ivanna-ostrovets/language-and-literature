@@ -4,7 +4,7 @@
 
 <form>
   <div class="questions-tabs center-align">
-    <button class="navigation btn-floating waves-effect waves-circle waves-green green darken-2"
+    <button class="navigation btn-floating waves-effect waves-circle purple accent-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
             ng-click="$ctrl.before($ctrl.currentTab - 1)">
       <i class="material-icons">navigate_before</i>
@@ -26,7 +26,7 @@
       </ul>
     </div>
 
-    <button class="navigation btn-floating waves-effect waves-circle waves-green green darken-2"
+    <button class="navigation btn-floating waves-effect waves-circle purple accent-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
             ng-click="$ctrl.next($ctrl.currentTab + 1)">
       <i class="material-icons">navigate_next</i>
@@ -36,7 +36,6 @@
   <div ng-repeat="question in $ctrl.test"
        ng-show="$ctrl.currentTab == $index">
     <h1 class="flow-text" ng-bind-html="question.question"></h1>
-
     <img ng-show="question.img"
          ng-src="{{ question.img }}"
          class="materialboxed test-image tooltipped"
@@ -116,7 +115,7 @@
   </div>
 
   <div class="row center-align">
-    <button class="btn-large waves-effect waves-green green darken-2"
+    <button class="btn-large waves-effect  purple accent-2"
             ng-class="{ 'disabled': $ctrl.results.length < 12 || $ctrl.showAnswers }"
             ng-click="$ctrl.check()">
       Перевірити

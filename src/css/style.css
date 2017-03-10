@@ -34,7 +34,7 @@ main {
 }
 
 .navbar-fixed nav, footer.page-footer {
-    background-color: #388e3c;
+    background-color: #0288D1;
 }
 
 footer.page-footer {
@@ -141,4 +141,17 @@ div .tabs {
 
 .answers-table input+label {
     padding: 0 12px !important;
+}
+
+.help-header {
+    background-color: #03A9F4;
+    color: #ffffff;
+    padding: 15px;
+    width: 100%;
+    margin: 0;
+}
+
+.modal .modal-content {
+    padding-top: 0;
+    padding-bottom: 0;
 }
