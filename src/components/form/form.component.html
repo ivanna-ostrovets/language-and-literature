@@ -41,7 +41,7 @@
          ng-src="{{ question.img }}"
          class="materialboxed test-image"/>
 
-    <div class="row">
+    <div class="row valign-wrapper">
       <table ng-show="question.table"
              class="question-table col striped bordered">
         <thead>
@@ -80,15 +80,10 @@
 
           <td ng-repeat="row in question.table">
             <input type="radio"
-                   name="{{ $parent.$index }}"
+                   name="complex{{ $parent.$index }}"
                    class="with-gap"
-                   id="test_11_{{ $parent.$index }}_{{ $index }}"
-                   ng-model="$ctrl.results[$parent.$index]"
-                   ng-disabled="$ctrl.showAnswers"
-                   ng-class="{
-                    'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
-                    'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
-                   }">
+                   id="complex_{{ $parent.$index }}_{{ $index }}"
+                   ng-disabled="$ctrl.showAnswers">
             <label for="test_{{ $parent.$index }}_{{ $index }}">
             </label>
           </td>
