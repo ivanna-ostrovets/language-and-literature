@@ -39,7 +39,10 @@
 
     <img ng-show="question.img"
          ng-src="{{ question.img }}"
-         class="materialboxed test-image"/>
+         class="materialboxed test-image tooltipped"
+         data-position="right"
+         data-tooltip="Натисніть на картинку, щоб збільшити її."
+         ng-click="$ctrl.closeTooltip()"/>
 
     <div class="row valign-wrapper">
       <table ng-show="question.table"
