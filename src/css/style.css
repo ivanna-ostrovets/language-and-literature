@@ -95,3 +95,43 @@ div .tabs {
     margin-top: 10px;
     padding: 5px;
 }
+
+.test-image {
+    width: 250px;
+}
+
+.test-image, .question-table, .answers-table {
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+
+.question-table td,
+.question-table th,
+.answers-table td,
+.answers-table th {
+    padding: 5px;
+}
+
+.question-table,
+.question-table td,
+.question-table th,
+.answers-table,
+.answers-table td,
+.answers-table th {
+    border: 1px solid #d0d0d0;
+}
+
+.row .question-table.col {
+    min-width: 400px;
+    width: 400px;
+    margin-right: 30px;
+}
+
+.answers-table {
+    min-width: 150px;
+    width: 150px;
+}
+
+.answers-table label {
+    padding: 0;
+}

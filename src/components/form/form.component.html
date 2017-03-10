@@ -37,21 +37,83 @@
        ng-show="$ctrl.currentTab == $index">
     <h1 class="flow-text" ng-bind-html="question.question"></h1>
 
-    <div ng-repeat="answer in question.answers">
-      <input type="radio"
-             name="{{ $parent.$index }}"
-             value="{{ $index + 1 }}"
-             class="with-gap"
-             id="test_{{ $parent.$index }}_{{ $index }}"
-             ng-model="$ctrl.results[$parent.$index]"
-             ng-disabled="$ctrl.showAnswers"
-             ng-class="{
-              'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
-              'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
-             }">
-      <label for="test_{{ $parent.$index }}_{{ $index }}">
-        {{answer.text}}
-      </label>
+    <img ng-show="question.img"
+         ng-src="{{ question.img }}"
+         class="materialboxed test-image"/>
+
+    <div class="row">
+      <table ng-show="question.table"
+             class="question-table col striped bordered">
+        <thead>
+        <tr>
+          <th ng-repeat="title in question.table_titles"
+              class="center-align">
+            {{ title.title }}
+          </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="row in question.table">
+          <td ng-repeat="column in row">
+            <span ng-show="column.column">{{ $ctrl.getNumber($parent.$index, $index) }}</span>
+            {{ column.column }}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <table ng-show="question.table"
+             class="answers-table col centered bordered">
+        <thead>
+        <tr>
+          <th></th>
+          <th ng-repeat="row in question.table">
+            {{ $ctrl.getNumber($index, 1, false) }}
+          </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="answer in question.answers">
+          <td>{{ answer.text }}</td>
+
+          <td ng-repeat="row in question.table">
+            <input type="radio"
+                   name="{{ $parent.$index }}"
+                   class="with-gap"
+                   id="test_11_{{ $parent.$index }}_{{ $index }}"
+                   ng-model="$ctrl.results[$parent.$index]"
+                   ng-disabled="$ctrl.showAnswers"
+                   ng-class="{
+                    'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
+                    'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
+                   }">
+            <label for="test_{{ $parent.$index }}_{{ $index }}">
+            </label>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="col" ng-hide="question.table">
+        <div ng-repeat="answer in question.answers">
+          <input type="radio"
+                 name="{{ $parent.$index }}"
+                 value="{{ $index + 1 }}"
+                 class="with-gap"
+                 id="test_{{ $parent.$index }}_{{ $index }}"
+                 ng-model="$ctrl.results[$parent.$index]"
+                 ng-disabled="$ctrl.showAnswers"
+                 ng-class="{
+                  'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
+                  'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
+                 }">
+          <label for="test_{{ $parent.$index }}_{{ $index }}">
+            {{ answer.text }}
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 

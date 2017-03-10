@@ -25,6 +25,7 @@ function FormController(
   $(document).ready(function() {
     $timeout(function() {
       $('ul.tabs').tabs();
+      $('.materialboxed').materialbox();
     }, 0);
   });
 }
@@ -46,6 +47,19 @@ FormController.prototype.next = function(tab) {
 FormController.prototype.check = function() {
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
+};
+
+FormController.prototype.getNumber = function(parentIndex, index, dots = true) {
+  if (dots) {
+    dots = index == 0 ? "." : ")";
+  } else {
+    dots = "";
+  }
+
+  return index == 0
+      ? parentIndex + 1 + dots
+      : "АБВГДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"[parentIndex] + dots
+      ;
 };
 
 angular.module('llt.app')
