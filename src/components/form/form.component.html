@@ -3,14 +3,14 @@
 </div>
 
 <form>
-  <div class="valign-wrapper questions-tabs">
-    <button class="btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
+  <div class="questions-tabs center-align">
+    <button class="navigation btn-floating waves-effect waves-circle waves-green green darken-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
             ng-click="$ctrl.before($ctrl.currentTab - 1)">
       <i class="material-icons">navigate_before</i>
     </button>
 
-    <div class="valign">
+    <div class="tabs-wrapper">
       <ul class="tabs">
         <li class="tab" ng-repeat="_ in $ctrl.test">
           <a ng-click="$ctrl.currentTab = $index"
@@ -26,7 +26,7 @@
       </ul>
     </div>
 
-    <button class="valign btn-floating btn-large waves-effect waves-circle waves-green green darken-2"
+    <button class="navigation btn-floating waves-effect waves-circle waves-green green darken-2"
             ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
             ng-click="$ctrl.next($ctrl.currentTab + 1)">
       <i class="material-icons">navigate_next</i>

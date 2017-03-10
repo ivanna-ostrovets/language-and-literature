@@ -57,12 +57,13 @@ footer.page-footer {
     margin-top: 20px;
 }
 
-div .tabs {
-    margin: 0 15px;
+.navigation, .tabs-wrapper, .tabs {
+    display: inline;
+    vertical-align: middle;
 }
 
-.tabs {
-    display: inline-block;
+div .tabs {
+    margin: 0 15px;
 }
 
 .tabs .tab a, .tabs .tab a.active, .tabs .tab a:hover {
@@ -85,7 +86,7 @@ div .tabs {
     color: #388e3c !important;
 }
 
-.wrong:checked + label, .wrong {
+.wrong:checked + label, .wrong  {
     color: #f44336 !important;
 }
 
