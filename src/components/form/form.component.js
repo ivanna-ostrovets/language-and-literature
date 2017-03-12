@@ -19,7 +19,9 @@ function FormController(
   this.showAnswers = false;
 
   this.test.forEach(function(item, index) {
-    $ctrl.test[index].question = $sce.trustAsHtml($ctrl.test[index].question);
+    if (typeof item.question === 'string') {
+      item.question = $sce.trustAsHtml(item.question);
+    }
   });
 
   $(document).ready(function() {
