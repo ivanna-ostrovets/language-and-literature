@@ -34,7 +34,7 @@ main {
 }
 
 .navbar-fixed nav, footer.page-footer {
-    background-color: #0288D1;
+    background-color: #03A9F4;
 }
 
 footer.page-footer {
@@ -66,16 +66,28 @@ div .tabs {
     margin: 0 15px;
 }
 
-.tabs .tab a, .tabs .tab a.active, .tabs .tab a:hover {
-    color: #388e3c;
+.tabs .tab a {
+    color: #000000;
 }
 
 .tabs .indicator {
-    background-color: #388e3c;
+    background-color: #E040FB;
+}
+
+.tabs .tab a.active, .tabs .tab a:hover {
+    color: #E040FB;
 }
 
 .collapsible-body .test-link {
     padding-left: 46px !important;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border-color: #E040FB !important;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #E040FB !important;
 }
 
 [type="radio"]:disabled + label, label {
@@ -86,8 +98,30 @@ div .tabs {
     color: #388e3c !important;
 }
 
-.wrong:checked + label, .wrong  {
+.wrong:checked + label, .wrong {
     color: #f44336 !important;
+}
+
+.correct + label:after,
+.correct.with-gap:checked + label:before,
+.correct.with-gap:checked + label:after {
+    border-color: #388e3c !important;
+}
+
+.correct:checked + label:after,
+.correct.with-gap:checked + label:after {
+    background-color: #388e3c !important;
+}
+
+.wrong + label:after,
+.wrong.with-gap:checked + label:before,
+.wrong.with-gap:checked + label:after {
+    border-color: #f44336 !important;
+}
+
+.wrong:checked + label:after,
+.wrong.with-gap:checked + label:after {
+    background-color: #f44336 !important;
 }
 
 .result {
@@ -139,19 +173,14 @@ div .tabs {
     padding: 0 10px;
 }
 
-.answers-table input+label {
+.answers-table input + label {
     padding: 0 12px !important;
 }
 
-.help-header {
-    background-color: #03A9F4;
-    color: #ffffff;
-    padding: 15px;
-    width: 100%;
-    margin: 0;
-}
-
-.modal .modal-content {
-    padding-top: 0;
-    padding-bottom: 0;
+.waves-effect.waves-blue .waves-ripple,
+.side-nav .collapsible-header:hover,
+.side-nav.fixed .collapsible-header:hover,
+.side-nav li.active,
+.side-nav a:hover{
+    background-color: #B3E5FC !important;
 }
