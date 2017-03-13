@@ -2,9 +2,13 @@ function NavbarController() {
   $(document).ready(function() {
     $(".start-test").sideNav();
     $('.collapsible').collapsible();
-    $('.modal').modal();
   });
 }
+
+NavbarController.prototype.openHelp = function() {
+  $('.modal').modal();
+  $('#modal1').modal('open');
+};
 
 angular.module('llt.app')
     .component('lltNavbar', {
