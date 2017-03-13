@@ -184,3 +184,7 @@ div .tabs {
 .side-nav a:hover{
     background-color: #B3E5FC !important;
 }
+
+.modal-close {
+    color: #03A9F4;
+}
