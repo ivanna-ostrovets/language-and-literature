@@ -265,19 +265,19 @@ angular.module('llt.app')
         answers: [
           {
             text: '1',
-            correct: 'e'
+            correct: '5'
           },
           {
             text: '2',
-            correct: 'c'
+            correct: '3'
           },
           {
             text: '3',
-            correct: 'a'
+            correct: '1'
           },
           {
             text: '4',
-            correct: 'b'
+            correct: '2'
           }
         ]
       },
