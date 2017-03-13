@@ -32,23 +32,23 @@ function TestsService(LANGUAGE_MORFOLOGY_1,
   }
 }
 
-TestsService.prototype.get = function (id) {
+TestsService.prototype.get = function(id) {
   return this.tests[id];
 };
 
-TestsService.prototype.getAnswers = function (test) {
+TestsService.prototype.getAnswers = function(test) {
   var answers = [];
 
-  test.forEach(function (question) {
+  test.forEach(function(question) {
     if (question.table) {
       answers.push([]);
       var lastIndex = answers.length - 1;
 
-      question.answers.forEach(function (answer) {
+      question.answers.forEach(function(answer) {
         answers[lastIndex].push(answer.correct);
       });
     } else {
-      question.answers.forEach(function (answer, index) {
+      question.answers.forEach(function(answer, index) {
         if (answer.correct) {
           answers.push(index + 1);
         }
@@ -59,12 +59,12 @@ TestsService.prototype.getAnswers = function (test) {
   return answers;
 };
 
-TestsService.prototype.check = function (results, testId) {
+TestsService.prototype.check = function(results, testId) {
   var count = 0;
   var test = this.get(testId);
   var answers = this.getAnswers(test);
 
-  results.forEach(function (result, index) {
+  results.forEach(function(result, index) {
     if (typeof result === 'object') {
       for (var idx in result) {
         if (answers[index][idx] == result[idx]) {
