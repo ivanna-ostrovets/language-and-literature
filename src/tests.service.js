@@ -1,21 +1,18 @@
-function TestsService(
-  LANGUAGE_MORFOLOGY_1,
-  LANGUAGE_MORFOLOGY_2,
-  LANGUAGE_MORFOLOGY_3,
-  LANGUAGE_MORFOLOGY_4,
-  LANGUAGE_MORFOLOGY_5,
-  LANGUAGE_SYNTAX_1,
-  LANGUAGE_SYNTAX_2,
-  LANGUAGE_SYNTAX_3,
-  LANGUAGE_SYNTAX_4,
-  LANGUAGE_SYNTAX_5,
-  LITERATURE_1,
-  LITERATURE_2,
-  LITERATURE_3,
-  LITERATURE_4,
-  LITERATURE_5
-)
-{
+function TestsService(LANGUAGE_MORFOLOGY_1,
+                      LANGUAGE_MORFOLOGY_2,
+                      LANGUAGE_MORFOLOGY_3,
+                      LANGUAGE_MORFOLOGY_4,
+                      LANGUAGE_MORFOLOGY_5,
+                      LANGUAGE_SYNTAX_1,
+                      LANGUAGE_SYNTAX_2,
+                      LANGUAGE_SYNTAX_3,
+                      LANGUAGE_SYNTAX_4,
+                      LANGUAGE_SYNTAX_5,
+                      LITERATURE_1,
+                      LITERATURE_2,
+                      LITERATURE_3,
+                      LITERATURE_4,
+                      LITERATURE_5) {
   this.tests = {
     'language_morfology_1': LANGUAGE_MORFOLOGY_1,
     'language_morfology_2': LANGUAGE_MORFOLOGY_2,
@@ -35,32 +32,49 @@ function TestsService(
   }
 }
 
-TestsService.prototype.get = function(id) {
+TestsService.prototype.get = function (id) {
   return this.tests[id];
 };
 
-TestsService.prototype.getAnswers = function(test) {
+TestsService.prototype.getAnswers = function (test) {
   var answers = [];
 
-  test.forEach(function(question) {
-    question.answers.forEach(function(answer, index) {
-      if (answer.correct) {
-        answers.push(index + 1);
-      }
-    });
+  test.forEach(function (question) {
+    if (question.table) {
+      answers.push([]);
+      var lastIndex = answers.length - 1;
+
+      question.answers.forEach(function (answer) {
+        answers[lastIndex].push(answer.correct);
+      });
+    } else {
+      question.answers.forEach(function (answer, index) {
+        if (answer.correct) {
+          answers.push(index + 1);
+        }
+      });
+    }
   });
 
   return answers;
 };
 
-TestsService.prototype.check = function(results, testId) {
+TestsService.prototype.check = function (results, testId) {
   var count = 0;
   var test = this.get(testId);
   var answers = this.getAnswers(test);
 
-  results.forEach(function(result, index) {
-    if (answers[index] == result) {
-      count += 1;
+  results.forEach(function (result, index) {
+    if (typeof result === 'object') {
+      for (var idx in result) {
+        if (answers[index][idx] == result[idx]) {
+          count += 0.25;
+        }
+      }
+    } else {
+      if (answers[index] == result) {
+        count += 1;
+      }
     }
   });
 

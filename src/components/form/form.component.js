@@ -48,6 +48,7 @@ FormController.prototype.next = function(tab) {
 };
 
 FormController.prototype.check = function() {
+  console.log(this.results);
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
 };

@@ -74,7 +74,7 @@ div .tabs {
     background-color: #E040FB;
 }
 
-.tabs .tab a.active, .tabs .tab a:hover {
+.tabs .tab a.active, .tabs .tab a:hover, .tabs .tab .answered {
     color: #E040FB;
 }
 
@@ -104,12 +104,18 @@ div .tabs {
 
 .correct + label:after,
 .correct.with-gap:checked + label:before,
-.correct.with-gap:checked + label:after {
+.correct.with-gap:checked + label:after,
+.correct.inputs-matrix:disabled + label:after,
+.correct.inputs-matrix:disabled.with-gap + label:before,
+.correct.inputs-matrix:disabled.with-gap + label:after {
     border-color: #388e3c !important;
 }
 
 .correct:checked + label:after,
-.correct.with-gap:checked + label:after {
+.correct.with-gap:checked + label:after,
+[type="radio"].correct.with-gap.inputs-matrix:disabled + label:after {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
     background-color: #388e3c !important;
 }
 
@@ -181,7 +187,7 @@ div .tabs {
 .side-nav .collapsible-header:hover,
 .side-nav.fixed .collapsible-header:hover,
 .side-nav li.active,
-.side-nav a:hover{
+.side-nav a:hover {
     background-color: #B3E5FC !important;
 }
 

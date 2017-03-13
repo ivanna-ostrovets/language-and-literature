@@ -2,7 +2,7 @@
   Ваш результат: {{$ctrl.count}}/12
 </div>
 
-<form>
+<form novalidate name="testForm">
   <div class="questions-tabs center-align">
     <button class="navigation btn-floating btn-large waves-effect waves-circle light-blue"
             ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
@@ -15,10 +15,11 @@
         <li class="tab" ng-repeat="_ in $ctrl.test">
           <a ng-click="$ctrl.currentTab = $index"
              ng-class="{
-            'active': $ctrl.currentTab == $index,
-            'wrong': $ctrl.showAnswers && $ctrl.answers[$index] != $ctrl.results[$index],
-            'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $ctrl.results[$index]
-           }"
+              'active': $ctrl.currentTab == $index,
+              'answered': $ctrl.results[$index],
+              'wrong': $ctrl.showAnswers && $ctrl.answers[$index] != $ctrl.results[$index],
+              'correct': $ctrl.showAnswers && $ctrl.answers[$index] == $ctrl.results[$index]
+             }"
              id="tab{{$index}}">
             {{ $index + 1 }}
           </a>
@@ -82,10 +83,17 @@
 
           <td ng-repeat="row in question.table">
             <input type="radio"
-                   name="complex{{ $parent.$index }}"
-                   class="with-gap"
+                   name="complex_{{ $parent.$index }}"
+                   class="with-gap inputs-matrix"
                    id="complex_{{ $parent.$index }}_{{ $index }}"
-                   ng-disabled="$ctrl.showAnswers">
+                   value="{{ $index + 1 }}"
+                   ng-model="$ctrl.results[$parent.$parent.$index][$parent.$index]"
+                   ng-disabled="$ctrl.showAnswers"
+                   ng-class="{
+                    'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] == $index + 1,
+                    'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] != $index + 1
+                   }"
+                   required>
             <label for="complex_{{ $parent.$index }}_{{ $index }}">
             </label>
           </td>
@@ -96,7 +104,7 @@
       <div class="col" ng-hide="question.table">
         <div ng-repeat="answer in question.answers">
           <input type="radio"
-                 name="{{ $parent.$index }}"
+                 name="question_{{ $parent.$index }}"
                  value="{{ $index + 1 }}"
                  class="with-gap"
                  id="test_{{ $parent.$index }}_{{ $index }}"
@@ -105,7 +113,8 @@
                  ng-class="{
                   'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
                   'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
-                 }">
+                 }"
+                 required>
           <label for="test_{{ $parent.$index }}_{{ $index }}">
             {{ answer.text }}
           </label>
@@ -115,10 +124,9 @@
   </div>
 
   <div class="row center-align">
-    <button class="btn-large waves-effect light-blue"
-            type="submit"
-            ng-class="{ 'disabled': $ctrl.results.length < 12 || $ctrl.showAnswers }"
-            ng-click="$ctrl.check()">
+    <button class="btn-large waves-effect light-blue" ng-click="$ctrl.check()">
+            <!--ng-class="{ 'disabled' : testForm.$invalid || $ctrl.showAnswers }"-->
+            <!--ng-click="$ctrl.check()">-->
       Перевірити
     </button>
   </div>
