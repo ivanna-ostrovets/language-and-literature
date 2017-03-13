@@ -17,8 +17,8 @@
              ng-class="{
               'active': $ctrl.currentTab == $index,
               'answered': $ctrl.results[$index],
-              'wrong': $ctrl.showAnswers && $ctrl.answers[$index] != $ctrl.results[$index],
-              'correct': $ctrl.showAnswers && $ctrl.answers[$index] == $ctrl.results[$index]
+              'wrong': $ctrl.showAnswers && !$ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]),
+              'correct': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index])
              }"
              id="tab{{$index}}">
             {{ $index + 1 }}
@@ -125,7 +125,7 @@
 
   <div class="row center-align">
     <button class="btn-large waves-effect light-blue"
-            ng-class="{ 'disabled' : testForm.$invalid || $ctrl.showAnswers }"
+            ng-class="{ '' : testForm.$invalid || $ctrl.showAnswers }"
             ng-click="$ctrl.check()">
       Перевірити
     </button>

@@ -1,9 +1,7 @@
-function FormController(
-    $routeParams,
-    $timeout,
-    $sce,
-    tests
-) {
+function FormController($routeParams,
+                        $timeout,
+                        $sce,
+                        tests) {
   this.$routeParams = $routeParams;
   var $ctrl = this;
 
@@ -33,6 +31,21 @@ function FormController(
   });
 }
 
+FormController.prototype.checkEquality = function(rightAnswer, answer) {
+  console.log(typeof answer);
+  if (typeof answer != 'object') {
+    return rightAnswer == answer;
+  } else {
+    rightAnswer.forEach(function(item, index) {
+      if (item != answer[index]) {
+        return false;
+      }
+    });
+  }
+
+  return true;
+};
+
 FormController.prototype.before = function(tab) {
   this.currentTab--;
   this.$timeout(function() {
@@ -48,7 +61,6 @@ FormController.prototype.next = function(tab) {
 };
 
 FormController.prototype.check = function() {
-  console.log(this.results);
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
 };
