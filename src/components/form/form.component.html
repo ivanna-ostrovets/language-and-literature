@@ -17,8 +17,9 @@
              ng-class="{
               'active': $ctrl.currentTab == $index,
               'answered': $ctrl.results[$index],
-              'wrong': $ctrl.showAnswers && !$ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]),
-              'correct': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index])
+              'wrong': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'wrong',
+              'correct': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'correct',
+              'partially': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'partially'
              }"
              id="tab{{$index}}">
             {{ $index + 1 }}

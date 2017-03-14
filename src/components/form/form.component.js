@@ -56,16 +56,24 @@ function FormController($routeParams,
 
 FormController.prototype.checkEquality = function(rightAnswer, answer) {
   if (typeof answer != 'object') {
-    return rightAnswer == answer;
+    return rightAnswer == answer ? 'correct' : 'wrong';
   } else {
+    var count = 0;
+
     rightAnswer.forEach(function(item, index) {
-      if (item != answer[index]) {
-        return false;
+      if (item == answer[index]) {
+        count++;
       }
     });
-  }
 
-  return true;
+    if (count == 4) {
+      return 'correct';
+    } else if (count == 0) {
+      return 'wrong';
+    } else {
+      return 'partially';
+    }
+  }
 };
 
 FormController.prototype.before = function(tab) {

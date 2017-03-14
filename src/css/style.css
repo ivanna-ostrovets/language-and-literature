@@ -99,6 +99,10 @@ div .tabs {
     color: #388e3c !important;
 }
 
+.partially {
+    color: #fbc02d !important;
+}
+
 .wrong:checked + label, .wrong {
     color: #f44336 !important;
 }
