@@ -4,12 +4,6 @@
 
 <form novalidate name="testForm">
   <div class="questions-tabs center-align">
-    <button class="navigation btn-floating btn-large waves-effect waves-circle light-blue"
-            ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
-            ng-click="$ctrl.before($ctrl.currentTab - 1)">
-      <i class="material-icons">navigate_before</i>
-    </button>
-
     <div class="tabs-wrapper">
       <ul class="tabs">
         <li class="tab" ng-repeat="_ in $ctrl.test">
@@ -26,12 +20,6 @@
         </li>
       </ul>
     </div>
-
-    <button class="navigation btn-floating btn-large waves-effect waves-circle light-blue"
-            ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
-            ng-click="$ctrl.next($ctrl.currentTab + 1)">
-      <i class="material-icons">navigate_next</i>
-    </button>
   </div>
 
   <div ng-repeat="question in $ctrl.test"
@@ -124,10 +112,22 @@
   </div>
 
   <div class="row center-align">
+    <button class="navigation btn-floating btn-large waves-effect waves-circle light-blue"
+            ng-class="{ 'disabled': $ctrl.currentTab == 0 }"
+            ng-click="$ctrl.before($ctrl.currentTab - 1)">
+      <i class="material-icons">navigate_before</i>
+    </button>
+
     <button class="btn-large waves-effect light-blue"
             ng-class="{ '' : testForm.$invalid || $ctrl.showAnswers }"
             ng-click="$ctrl.check()">
       Перевірити
+    </button>
+
+    <button class="navigation btn-floating btn-large waves-effect waves-circle light-blue"
+            ng-class="{ 'disabled': $ctrl.currentTab == 11 }"
+            ng-click="$ctrl.next($ctrl.currentTab + 1)">
+      <i class="material-icons">navigate_next</i>
     </button>
   </div>
 </form>
