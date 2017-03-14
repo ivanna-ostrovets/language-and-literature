@@ -131,6 +131,10 @@ div .tabs {
     background-color: #f44336 !important;
 }
 
+.question-title {
+    font-size: 1.5rem;
+}
+
 .result {
     font-size: 2rem;
     margin-top: 10px;
