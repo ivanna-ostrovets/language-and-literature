@@ -39,10 +39,7 @@
     <h1 class="flow-text" ng-bind-html="question.question"></h1>
     <img ng-show="question.img"
          ng-src="{{ question.img }}"
-         class="materialboxed test-image tooltipped"
-         data-position="right"
-         data-tooltip="Натисніть на картинку, щоб збільшити її."
-         ng-click="$ctrl.closeTooltip()"/>
+         class="materialboxed test-image" />
 
     <div class="row valign-wrapper">
       <table ng-show="question.table"

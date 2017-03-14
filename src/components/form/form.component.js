@@ -27,7 +27,6 @@ function FormController($routeParams,
     $timeout(function() {
       $('ul.tabs').tabs();
       $('.materialboxed').materialbox();
-      $('.tooltipped').tooltip({delay: 0});
     }, 0);
   });
 }
@@ -64,10 +63,6 @@ FormController.prototype.check = function() {
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
   this.hideCheckButton = true;
-};
-
-FormController.prototype.closeTooltip = function() {
-  $('.test-image').tooltip('remove');
 };
 
 FormController.prototype.getNumber = function(parentIndex, index, dots = true) {
