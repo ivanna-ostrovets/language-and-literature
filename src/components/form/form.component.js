@@ -1,7 +1,8 @@
 function FormController($routeParams,
                         $timeout,
                         $sce,
-                        tests) {
+                        tests,
+                        $scope) {
   this.$routeParams = $routeParams;
   var $ctrl = this;
 
@@ -28,6 +29,22 @@ function FormController($routeParams,
       $('ul.tabs').tabs();
       $('.materialboxed').materialbox();
     }, 0);
+  });
+
+  $scope.$on("$destroy", $(document).off("keydown"));
+
+  $(document).on("keydown", function(event) {
+    if ((event.keyCode || event.which) == 37) {
+      if ($ctrl.currentTab > 0) {
+        $ctrl.before($ctrl.currentTab - 1)
+      }
+    }
+
+    if ((event.keyCode || event.which) == 39) {
+      if ($ctrl.currentTab < 11) {
+        $ctrl.next($ctrl.currentTab + 1)
+      }
+    }
   });
 }
 
