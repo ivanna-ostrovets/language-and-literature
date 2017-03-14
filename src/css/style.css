@@ -8,6 +8,10 @@ body, .tabs {
     background-color: #f7f7f7;
 }
 
+.welcome-page-image {
+    width: 50%;
+}
+
 main {
     flex: 1 0 auto;
 }
