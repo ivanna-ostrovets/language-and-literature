@@ -80,6 +80,7 @@ FormController.prototype.check = function() {
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
   this.hideCheckButton = true;
+  document.querySelector('#tab0').click();
 };
 
 FormController.prototype.getNumber = function(parentIndex, index, dots = true) {
