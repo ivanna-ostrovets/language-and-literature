@@ -35,12 +35,16 @@ function FormController($routeParams,
     if ((event.keyCode || event.which) == 37) {
       if ($ctrl.currentTab > 0) {
         $ctrl.before($ctrl.currentTab - 1);
+
+        return false;
       }
     }
 
     if ((event.keyCode || event.which) == 39) {
       if ($ctrl.currentTab < 11) {
         $ctrl.next($ctrl.currentTab + 1);
+
+        return false;
       }
     }
   });
