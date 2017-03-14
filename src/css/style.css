@@ -60,7 +60,7 @@ footer.page-footer {
 
 .navigation, .tabs-wrapper, .tabs {
     display: inline;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
 div .tabs {
