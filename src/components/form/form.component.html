@@ -17,9 +17,9 @@
              ng-class="{
               'active': $ctrl.currentTab == $index,
               'answered': $ctrl.results[$index],
-              'wrong': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'wrong',
-              'correct': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'correct',
-              'partially': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'partially'
+              'red-text': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'red',
+              'green-text': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'green',
+              'yellow-text text-darken-2': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'yellow'
              }"
              id="tab{{$index}}">
             {{ $index + 1 }}
@@ -89,8 +89,8 @@
                    ng-model="$ctrl.results[$parent.$parent.$index][$parent.$index]"
                    ng-disabled="$ctrl.showAnswers"
                    ng-class="{
-                    'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] == $index + 1,
-                    'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] != $index + 1
+                    'green': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] == $index + 1,
+                    'red': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] != $index + 1
                    }"
                    required>
             <label for="complex_{{ $parent.$index }}_{{ $index }}">
@@ -110,8 +110,8 @@
                  ng-model="$ctrl.results[$parent.$index]"
                  ng-disabled="$ctrl.showAnswers"
                  ng-class="{
-                  'correct': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
-                  'wrong': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
+                  'green': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
+                  'red': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
                  }"
                  required>
           <label for="test_{{ $parent.$index }}_{{ $index }}">
@@ -125,7 +125,7 @@
   <div class="row center-align">
     <button class="btn-large waves-effect light-blue check-button"
             ng-click="$ctrl.check()"
-            ng-hide="testForm.$invalid || $ctrl.hideCheckButton">
+            ng-hide="testForm.$invalid && $ctrl.hideCheckButton">
       Перевірити
     </button>
   </div>

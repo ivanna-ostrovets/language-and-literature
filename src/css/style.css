@@ -95,43 +95,39 @@ div .tabs {
     color: #000000 !important;
 }
 
-.correct:disabled + label, .correct {
+.green:disabled + label {
     color: #388e3c !important;
 }
 
-.partially {
-    color: #fbc02d !important;
-}
-
-.wrong:checked + label, .wrong {
+.red:checked + label {
     color: #f44336 !important;
 }
 
-.correct + label:after,
-.correct.with-gap:checked + label:before,
-.correct.with-gap:checked + label:after,
-.correct.inputs-matrix:disabled + label:after,
-.correct.inputs-matrix:disabled.with-gap + label:before,
-.correct.inputs-matrix:disabled.with-gap + label:after {
+.green + label:after,
+.green.with-gap:checked + label:before,
+.green.with-gap:checked + label:after,
+.green.inputs-matrix:disabled + label:after,
+.green.inputs-matrix:disabled.with-gap + label:before,
+.green.inputs-matrix:disabled.with-gap + label:after {
     border-color: #388e3c !important;
 }
 
-.correct:checked + label:after,
-.correct.with-gap:checked + label:after,
-[type="radio"].correct.with-gap.inputs-matrix:disabled + label:after {
+.green:checked + label:after,
+.green.with-gap:checked + label:after,
+[type="radio"].green.with-gap.inputs-matrix:disabled + label:after {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     background-color: #388e3c !important;
 }
 
-.wrong + label:after,
-.wrong.with-gap:checked + label:before,
-.wrong.with-gap:checked + label:after {
+.red + label:after,
+.red.with-gap:checked + label:before,
+.red.with-gap:checked + label:after {
     border-color: #f44336 !important;
 }
 
-.wrong:checked + label:after,
-.wrong.with-gap:checked + label:after {
+.red:checked + label:after,
+.red.with-gap:checked + label:after {
     background-color: #f44336 !important;
 }
 

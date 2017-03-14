@@ -56,7 +56,7 @@ function FormController($routeParams,
 
 FormController.prototype.checkEquality = function(rightAnswer, answer) {
   if (typeof answer != 'object') {
-    return rightAnswer == answer ? 'correct' : 'wrong';
+    return rightAnswer == answer ? 'green' : 'red';
   } else {
     var count = 0;
 
@@ -67,11 +67,11 @@ FormController.prototype.checkEquality = function(rightAnswer, answer) {
     });
 
     if (count == 4) {
-      return 'correct';
+      return 'green';
     } else if (count == 0) {
-      return 'wrong';
+      return 'red';
     } else {
-      return 'partially';
+      return 'yellow';
     }
   }
 };
