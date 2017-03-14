@@ -15,6 +15,7 @@ function FormController($routeParams,
   this.answers = this.tests.getAnswers(this.test);
   this.count = 0;
   this.showAnswers = false;
+  this.hideCheckButton = false;
 
   this.test.forEach(function(item, index) {
     if (typeof item.question === 'string') {
@@ -32,7 +33,6 @@ function FormController($routeParams,
 }
 
 FormController.prototype.checkEquality = function(rightAnswer, answer) {
-  console.log(typeof answer);
   if (typeof answer != 'object') {
     return rightAnswer == answer;
   } else {
@@ -63,6 +63,7 @@ FormController.prototype.next = function(tab) {
 FormController.prototype.check = function() {
   this.count = this.tests.check(this.results, this.testId);
   this.showAnswers = true;
+  this.hideCheckButton = true;
 };
 
 FormController.prototype.closeTooltip = function() {

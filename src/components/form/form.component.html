@@ -124,9 +124,9 @@
   </div>
 
   <div class="row center-align">
-    <button class="btn-large waves-effect light-blue"
-            ng-class="{ '' : testForm.$invalid || $ctrl.showAnswers }"
-            ng-click="$ctrl.check()">
+    <button class="btn-large waves-effect light-blue check-button"
+            ng-click="$ctrl.check()"
+            ng-hide="testForm.$invalid || $ctrl.hideCheckButton">
       Перевірити
     </button>
   </div>
