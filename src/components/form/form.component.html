@@ -38,11 +38,11 @@
        ng-show="$ctrl.currentTab == $index">
     <h1 class="question-title" ng-bind-html="question.question"></h1>
 
-    <img ng-show="question.img"
-         ng-src="{{ question.img }}"
-         class="materialboxed test-image" />
+    <div class="row">
+      <img ng-show="question.img"
+           ng-src="{{ question.img }}"
+           class="col materialboxed test-image" />
 
-    <div class="row valign-wrapper">
       <table ng-show="question.table"
              class="question-table col striped bordered">
         <thead>
