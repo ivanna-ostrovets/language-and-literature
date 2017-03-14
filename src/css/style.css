@@ -62,9 +62,13 @@ footer.page-footer {
     margin-top: 20px;
 }
 
+.navigation {
+    margin-bottom: 4px;
+}
+
 .navigation, .tabs-wrapper, .tabs {
     display: inline;
-    vertical-align: baseline;
+    vertical-align: bottom;
 }
 
 div .tabs {
