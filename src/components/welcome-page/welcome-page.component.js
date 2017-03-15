@@ -1,6 +1,7 @@
 function WelcomePageController() {
   $(document).ready(function(){
-    $('.carousel').carousel();
+    $(".start-test").sideNav();
+    $('.collapsible').collapsible();
   });
 }
 

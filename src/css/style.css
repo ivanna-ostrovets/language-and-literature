@@ -8,8 +8,9 @@ body, .tabs {
     background-color: #f7f7f7;
 }
 
-.welcome-page-image {
-    width: 50%;
+.welcome-page .app-name {
+    color: #E040FB;
+    font-size: 11.2rem;
 }
 
 main {
