@@ -1,0 +1,138 @@
+@import "../../css/variables";
+
+.questions-tabs {
+  margin-top: 20px;
+
+  .navigation, .tabs-wrapper, .tabs {
+    display: inline;
+    vertical-align: bottom;
+  }
+
+  .navigation {
+    margin-bottom: 4px;
+  }
+
+  .tabs {
+    background-color: $background-color;
+    margin: 0 15px;
+
+    .tab {
+      cursor: pointer;
+
+      a {
+        color: $text-color;
+      }
+
+      .indicator {
+        background-color: $accent-color;
+      }
+
+      a.active, a:hover, .answered {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:before,
+[type="radio"].with-gap:checked + label:after {
+  border-color: $accent-color !important;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after {
+  background-color: $accent-color !important;
+}
+
+[type="radio"]:disabled + label,
+label {
+  color: $text-color !important;
+}
+
+.green:disabled + label {
+  color: $green !important;
+}
+
+.red:checked + label {
+  color: $red !important;
+}
+
+.green + label:after,
+.green.with-gap:checked + label:before,
+.green.with-gap:checked + label:after,
+.green.inputs-matrix:disabled + label:after,
+.green.inputs-matrix:disabled.with-gap + label:before,
+.green.inputs-matrix:disabled.with-gap + label:after {
+  border-color: $green !important;
+}
+
+.green:checked + label:after,
+.green.with-gap:checked + label:after,
+[type="radio"].green.with-gap.inputs-matrix:disabled + label:after {
+  transform: scale(0.5);
+  background-color: $green !important;
+}
+
+.red + label:after,
+.red.with-gap:checked + label:before,
+.red.with-gap:checked + label:after {
+  border-color: $red !important;
+}
+
+.red:checked + label:after,
+.red.with-gap:checked + label:after {
+  background-color: $red !important;
+}
+
+.question-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.result {
+  font-size: 2rem;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.test-image {
+  width: 250px;
+  margin-right: 30px;
+}
+
+.row {
+  .question-table, .answers-table {
+    border: 1px solid $table-border-color;
+
+    td, th {
+      padding: 5px;
+      border: 1px solid $table-border-color;
+    }
+  }
+
+  .question-table {
+    .col {
+      min-width: 400px;
+      width: 400px;
+      margin-right: 50px;
+    }
+  }
+
+  .answers-table {
+    min-width: 150px;
+    width: 150px;
+
+    td {
+      padding: 1px 5px;
+    }
+
+    td:first-child {
+      padding: 0 10px;
+    }
+
+    input + label {
+      padding: 0 12px !important;
+    }
+  }
+}

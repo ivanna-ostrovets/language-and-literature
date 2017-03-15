@@ -1,0 +1,57 @@
+@import "../../css/variables";
+
+.navbar-fixed {
+  nav {
+    background-color: $primary-color;
+
+    .nav-wrapper {
+      a {
+        .brand-logo {
+          padding-left: 8px;
+
+          i.material-icons {
+            font-size: 2.5rem;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.side-nav {
+  li:first-of-type {
+    height: 25%;
+  }
+
+  .background, .userView {
+    height: 100%;
+  }
+
+  .userView {
+    a {
+      i {
+        display: inline;
+        float: left;
+      }
+    }
+  }
+
+  .collapsible-body {
+    .test-link {
+      padding-left: 46px !important;
+    }
+  }
+}
+
+.waves-effect.waves-blue .waves-ripple,
+.side-nav .collapsible-header:hover,
+.side-nav.fixed .collapsible-header:hover,
+.side-nav li.active,
+.side-nav a:hover {
+  background-color: #B3E5FC !important;
+}
+
+.modal-close {
+  color: $primary-color;
+}
