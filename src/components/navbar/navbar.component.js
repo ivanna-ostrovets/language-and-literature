@@ -1,3 +1,6 @@
+import './navbar.component.scss';
+import template from './navbar.component.html';
+
 function NavbarController() {
   $(document).ready(function() {
     $(".start-test").sideNav();
@@ -12,6 +15,6 @@ NavbarController.prototype.openHelp = function() {
 
 angular.module('llt.app')
     .component('lltNavbar', {
-      templateUrl: 'components/navbar/navbar.component.html',
+      template: template,
       controller: NavbarController
     });

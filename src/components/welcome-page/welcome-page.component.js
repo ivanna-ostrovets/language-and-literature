@@ -1,3 +1,6 @@
+import './welcome-page.component.scss';
+import template from './welcome-page.component.html';
+
 function WelcomePageController() {
   $(document).ready(function(){
     $(".start-test").sideNav();
@@ -7,6 +10,6 @@ function WelcomePageController() {
 
 angular.module('llt.app')
   .component('lltWelcomePage', {
-    templateUrl: 'components/welcome-page/welcome-page.component.html',
+    template: template,
     controller: WelcomePageController,
   });

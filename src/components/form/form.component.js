@@ -1,3 +1,6 @@
+import './form.component.scss';
+import template from './form.component.html';
+
 function FormController($routeParams,
                         $timeout,
                         $sce,
@@ -114,6 +117,6 @@ FormController.prototype.getNumber = function(parentIndex, index, dots = true) {
 
 angular.module('llt.app')
     .component('lltForm', {
-      templateUrl: 'components/form/form.component.html',
+      template: template,
       controller: FormController
     });

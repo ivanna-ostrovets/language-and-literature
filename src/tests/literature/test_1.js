@@ -1,3 +1,5 @@
+import sizif from "../../img/sizif.png";
+
 angular.module('llt.app')
     .constant('LITERATURE_1', [
       {
@@ -128,7 +130,7 @@ angular.module('llt.app')
       },
       {
         question: 'На рисунку зображено персонажа античної міфології, образ якого переосмислено у творі',
-        img: 'img/sizif.png',
+        img: sizif,
         answers: [
           {
             text: '"Кавказ"'

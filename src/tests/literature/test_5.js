@@ -1,8 +1,10 @@
+import prometheus from "../../img/prometheus.png";
+
 angular.module('llt.app')
     .constant('LITERATURE_5', [
       {
         question: 'Персонажа давньогрецької міфології, зображеного на малюнку, згадано у творі',
-        img: 'img/prometheus.png',
+        img: prometheus,
         answers: [
           {
             text: '"Кавказ"',

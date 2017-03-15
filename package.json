@@ -1,0 +1,31 @@
+{
+  "name": "language-and-literature",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass src/css/main.scss src/css/main.css",
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanna-ostrovets/language-and-literature.git"
+  },
+  "author": "Ivanna Ostrovets <ivanna.ostrovets@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivanna-ostrovets/language-and-literature/issues"
+  },
+  "homepage": "https://github.com/ivanna-ostrovets/language-and-literature#readme",
+  "dependencies": {
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "html-loader": "^0.4.5",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.0",
+    "webpack": "^2.2.1"
+  }
+}

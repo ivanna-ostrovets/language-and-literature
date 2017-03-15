@@ -1,3 +1,5 @@
+import kate from "../../img/kate.png";
+
 angular.module('llt.app')
     .constant('LITERATURE_3', [
       {
@@ -44,7 +46,7 @@ angular.module('llt.app')
       },
       {
         question: 'На картині зображено головну героїню твору',
-        img: 'img/kate.png',
+        img: kate,
         answers: [
           {
             text: 'Івана Котляревського'
