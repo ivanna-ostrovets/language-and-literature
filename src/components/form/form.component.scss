@@ -23,13 +23,13 @@
         color: $text-color;
       }
 
-      .indicator {
-        background-color: $accent-color;
-      }
-
       a.active, a:hover, .answered {
         color: $accent-color;
       }
+    }
+
+    .indicator {
+      background-color: $accent-color !important;
     }
   }
 }
