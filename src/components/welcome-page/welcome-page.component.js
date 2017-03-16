@@ -1,12 +1,12 @@
 function WelcomePageController() {
-  $(document).ready(function(){
-    $(".start-test").sideNav();
-    $('.collapsible').collapsible();
-  });
 }
 
+WelcomePageController.prototype.openSideNav = function () {
+  $(".start-test").sideNav('show');
+};
+
 angular.module('llt.app')
-  .component('lltWelcomePage', {
-    templateUrl: 'components/welcome-page/welcome-page.component.html',
-    controller: WelcomePageController,
-  });
+    .component('lltWelcomePage', {
+      templateUrl: 'components/welcome-page/welcome-page.component.html',
+      controller: WelcomePageController,
+    });
