@@ -1,12 +1,12 @@
 angular.module('llt.app')
-    .directive('sideNavClose', function() {
+    .directive('sideNavClose', () => {
       return {
         restrict: 'A',
-        link: function(scope, elem, attrs) {
-          elem.on('click', function() {
+        link: (scope, elem, attrs) => {
+          elem.on('click', () => {
             $(attrs.sideNavClose).sideNav('hide');
 
-            $(".collapsible-header").removeClass(function(){
+            $(".collapsible-header").removeClass(() => {
               return "active";
             });
             $(".collapsible").collapsible({accordion: false});

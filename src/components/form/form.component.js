@@ -61,7 +61,7 @@ class FormController {
     if (typeof answer != 'object') {
       return rightAnswer == answer ? 'green' : 'red';
     } else {
-      var count = 0;
+      let count = 0;
 
       rightAnswer.forEach((item, index) => {
         if (item == answer[index]) {
