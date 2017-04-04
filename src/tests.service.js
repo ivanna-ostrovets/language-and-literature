@@ -63,7 +63,7 @@ class TestsService {
   check(results, testId) {
     let count = 0;
     const test = this.get(testId);
-    const answers = this.getAnswers(test);
+    const answers = this.getAnswers(test.questions);
 
     results.forEach((result, index) => {
       if (typeof result === 'object') {

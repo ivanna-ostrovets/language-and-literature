@@ -16,12 +16,12 @@ class FormController {
     this.test = this.tests.get(this.$routeParams.id);
     this.currentTab = 0;
     this.results = [];
-    this.answers = this.tests.getAnswers(this.test);
+    this.answers = this.tests.getAnswers(this.test.questions);
     this.count = 0;
     this.showAnswers = false;
     this.hideCheckButton = false;
 
-    this.test.forEach((item) => {
+    this.test.questions.forEach((item) => {
       if (typeof item.question === 'string') {
         item.question = $sce.trustAsHtml(item.question);
       }
