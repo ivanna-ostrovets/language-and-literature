@@ -12,7 +12,7 @@
 
     <div class="tabs-wrapper">
       <ul class="tabs">
-        <li class="tab" ng-repeat="_ in $ctrl.test">
+        <li class="tab" ng-repeat="_ in $ctrl.test.questions">
           <a ng-click="$ctrl.currentTab = $index"
              ng-class="{
               'active': $ctrl.currentTab == $index,
@@ -35,7 +35,7 @@
     </button>
   </div>
 
-  <div ng-repeat="question in $ctrl.test"
+  <div ng-repeat="question in $ctrl.test.questions"
        ng-show="$ctrl.currentTab == $index">
     <h1 class="question-title" ng-bind-html="question.question"></h1>
 
