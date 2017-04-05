@@ -1,4 +1,5 @@
-<div class="center-align result" ng-show="$ctrl.showAnswers">
+<div class="center-align result"
+     ng-show="$ctrl.showAnswers">
   Ваш результат: {{$ctrl.count}}/12
 </div>
 
@@ -12,7 +13,8 @@
 
     <div class="tabs-wrapper">
       <ul class="tabs">
-        <li class="tab" ng-repeat="_ in $ctrl.test.questions">
+        <li class="tab"
+            ng-repeat="_ in $ctrl.test.questions">
           <a ng-click="$ctrl.currentTab = $index"
              ng-class="{
               'active': $ctrl.currentTab == $index,
@@ -21,7 +23,7 @@
               'green-text': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'green',
               'yellow-text text-darken-2': $ctrl.showAnswers && $ctrl.checkEquality($ctrl.answers[$index], $ctrl.results[$index]) == 'yellow'
              }"
-             id="tab{{$index}}">
+             id="tab{{ $index }}">
             {{ $index + 1 }}
           </a>
         </li>
@@ -37,83 +39,87 @@
 
   <div ng-repeat="question in $ctrl.test.questions"
        ng-show="$ctrl.currentTab == $index">
-    <h1 class="question-title" ng-bind-html="question.question"></h1>
+    <h1 class="question-title"
+        ng-bind-html="question.question">
+    </h1>
 
     <div class="row">
       <img ng-show="question.img"
            ng-src="{{ question.img }}"
-           class="col materialboxed test-image" />
+           class="col materialboxed test-image"/>
 
       <table ng-show="question.table"
              class="question-table col striped bordered">
         <thead>
-        <tr>
-          <th ng-repeat="title in question.table_titles"
-              class="center-align">
-            {{ title.title }}
-          </th>
-        </tr>
+          <tr>
+            <th ng-repeat="title in question.table_titles"
+                class="center-align">
+              {{ title.title }}
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr ng-repeat="row in question.table">
-          <td ng-repeat="column in row">
-            <span ng-show="column.column">{{ $ctrl.getNumber($parent.$index, $index) }}</span>
-            {{ column.column }}
-          </td>
-        </tr>
+          <tr ng-repeat="row in question.table">
+            <td ng-repeat="column in row">
+              <span ng-show="column.column">
+                {{ $ctrl.getNumber($parent.$index, $index) }}
+              </span>
+              {{ column.column }}
+            </td>
+          </tr>
         </tbody>
       </table>
 
       <table ng-show="question.table"
              class="answers-table col centered bordered">
         <thead>
-        <tr>
-          <th></th>
-          <th ng-repeat="row in question.table">
-            {{ $ctrl.getNumber($index, 1, false) }}
-          </th>
-        </tr>
+          <tr>
+            <th></th>
+            <th ng-repeat="row in question.table">
+              {{ $ctrl.getNumber($index, 1, false) }}
+            </th>
+          </tr>
         </thead>
 
         <tbody>
-        <tr ng-repeat="answer in question.answers">
-          <td>{{ answer.text }}</td>
+          <tr ng-repeat="answer in question.answers">
+            <td>{{ answer.text }}</td>
 
-          <td ng-repeat="row in question.table">
-            <input type="radio"
-                   name="complex_{{ $parent.$index }}"
-                   class="with-gap inputs-matrix"
-                   id="complex_{{ $parent.$index }}_{{ $index }}"
-                   value="{{ $index + 1 }}"
-                   ng-model="$ctrl.results[$parent.$parent.$index][$parent.$index]"
-                   ng-disabled="$ctrl.showAnswers"
-                   ng-class="{
-                    'green': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] == $index + 1,
-                    'red': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] != $index + 1
-                   }"
-                   required>
-            <label for="complex_{{ $parent.$index }}_{{ $index }}">
-            </label>
-          </td>
-        </tr>
+            <td ng-repeat="row in question.table">
+              <input type="radio"
+                     required
+                     class="with-gap inputs-matrix"
+                     id="complex_{{ $parent.$index }}_{{ $index }}"
+                     name="complex_{{ $parent.$index }}"
+                     value="{{ $index + 1 }}"
+                     ng-model="$ctrl.results[$parent.$parent.$index][$parent.$index]"
+                     ng-disabled="$ctrl.showAnswers"
+                     ng-class="{
+                      'green': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] == $index + 1,
+                      'red': $ctrl.showAnswers && $ctrl.answers[$parent.$parent.$index][$parent.$index] != $index + 1
+                     }">
+              <label for="complex_{{ $parent.$index }}_{{ $index }}">
+              </label>
+            </td>
+          </tr>
         </tbody>
       </table>
 
       <div class="col" ng-hide="question.table">
         <div ng-repeat="answer in question.answers">
           <input type="radio"
-                 name="question_{{ $parent.$index }}"
-                 value="{{ $index + 1 }}"
+                 required
                  class="with-gap"
                  id="test_{{ $parent.$index }}_{{ $index }}"
+                 name="question_{{ $parent.$index }}"
+                 value="{{ $index + 1 }}"
                  ng-model="$ctrl.results[$parent.$index]"
                  ng-disabled="$ctrl.showAnswers"
                  ng-class="{
                   'green': $ctrl.showAnswers && $ctrl.answers[$parent.$index] == $index + 1,
                   'red': $ctrl.showAnswers && $ctrl.answers[$parent.$index] != $index + 1
-                 }"
-                 required>
+                 }">
           <label for="test_{{ $parent.$index }}_{{ $index }}">
             {{ answer.text }}
           </label>
